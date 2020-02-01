@@ -1,9 +1,9 @@
 (function teste(){
-
-
     var firstChar = document.getElementById('firstChar')
     var secChar = document.getElementById('secChar')
     var sendLetter =document.getElementById('sendLetter')
+    var asPrime = document.getElementById('asPrime')
+    var notPrime = document.getElementById('notPrime')
     let alphaValue = {}
 
 
@@ -18,9 +18,12 @@
 
     var isPrime = (a , b) => {
         if(alphaValue[a] % alphaValue[b] === 0){
-            return   console.log(`É primo`)
+            asPrime.classList.remove('as-or-not')
+            notPrime.classList.add('as-or-not')
+            return
         }
-        console.log('num é')
+        notPrime.classList.remove('as-or-not')
+        asPrime.classList.add('as-or-not')
     }
 
     sendLetter.addEventListener('click', function(){
@@ -28,8 +31,4 @@
         var secCharValue = secChar.value
         isPrime(firstCharValue, secCharValue)
     })
-    
-
-
-
 })()
